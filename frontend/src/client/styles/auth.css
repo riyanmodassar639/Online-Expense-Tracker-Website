@@ -1,0 +1,346 @@
+.authRoot{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+}
+
+.authCard{
+  width: min(720px, 100%);
+  border-radius: 22px;
+  padding: 22px 22px 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+  
+  /* ✅ try to fit in viewport (desktop) */
+  max-height: calc(100vh - 80px);
+}
+
+.authTitle{
+  margin: 0;
+  font-size: 44px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.92);
+}
+
+.authSub{
+  margin-top: 8px;
+  font-weight: 750;
+  opacity: 0.8;
+  color: rgba(255,255,255,0.90);
+}
+
+/* ✅ white glassy message */
+.authMsg{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.26);
+  backdrop-filter: blur(14px);
+  color: rgba(255,255,255,0.95);
+  font-weight: 850;
+}
+
+.authForm{
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* ✅ avoid scroll on desktop */
+  overflow: hidden;
+}
+
+.authGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.authLabel{
+  font-weight: 850;
+  opacity: 0.9;
+  margin-top: 8px;
+}
+
+.authInput{
+  height: 44px;
+  border-radius: 16px;
+  padding: 0 16px;
+  outline: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+}
+
+.authInput[type="file"]{
+  height: auto;
+  padding: 12px 14px;
+}
+
+.authBtn{
+  margin-top: 14px;
+  height: 54px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  background: rgba(34,197,94,0.95);
+  color: #06202a;
+}
+
+.authBtn:disabled{
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.authBottom{
+  margin-top: 12px;
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+.authBottom a{
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.authBottom a:hover{
+  text-decoration: underline;
+}
+
+/* ✅ Mobile: allow scroll if needed */
+@media (max-width: 700px){
+  .authCard{
+    max-height: unset;
+  }
+  .authForm{
+    overflow: auto;
+  }
+  .authGrid{
+    grid-template-columns: 1fr;
+  }
+}
+/* ✅ Register/Login form alignment fix */
+.authForm {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ✅ label always on top */
+.authLabel {
+  display: block;
+  margin: 0 0 8px;
+  font-weight: 800;
+  opacity: 0.92;
+}
+
+/* ✅ inputs full width and consistent */
+.authInput {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 14px; /* better boxy look like screenshot */
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ✅ placeholder */
+.authInput::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ✅ grid alignment (two equal columns) */
+.authGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* ✅ each grid item spacing */
+.authGrid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ file input same full width */
+.authInput[type="file"] {
+  height: auto;
+  padding: 10px 12px;
+  border-radius: 14px;
+}
+
+/* ✅ button MUST stay inside card */
+.authBtn {
+  margin-top: 14px;
+  width: 100%;
+  height: 58px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: #22c55e;
+  color: #06202a;
+  font-weight: 1000;
+  letter-spacing: 0.2px;
+}
+
+/* ✅ mobile = single column */
+@media (max-width: 760px) {
+  .authGrid {
+    grid-template-columns: 1fr;
+  }
+}
+.authCardTall {
+  max-height: 92vh;
+  overflow: auto;   /* ✅ hidden → auto */
+}
+/* ✅ Card ko chota (width + padding + max-height) */
+.authCard {
+  width: min(640px, calc(100% - 40px));
+  padding: 26px;
+}
+
+.authCardTall {
+  width: min(650px, calc(100% - 40px));
+  padding: 28px;
+  max-height: 86vh;
+}
+
+/* ✅ Headings thore small */
+.authTitle {
+  font-size: 40px;
+  line-height: 1.05;
+}
+
+.authSub {
+  font-size: 16px;
+  opacity: 0.82;
+}
+
+/* ✅ Inputs + button height thori kam */
+.authInput {
+  height: 44px;
+  border-radius: 12px;
+}
+
+.authBtn {
+  height: 52px;
+}
+/* =======================================
+   ✅ Unique Scrollbar (Auth Card only)
+   Works in Chrome/Edge/Safari + Firefox
+======================================= */
+
+/* Ensure scroll area is the card itself (for tall register) */
+.authCardTall {
+  overflow-y: auto;
+}
+
+/* Chrome / Edge / Safari */
+.authCardTall::-webkit-scrollbar {
+  width: 12px;
+}
+
+.authCardTall::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  margin: 14px; /* top/bottom breathing space */
+}
+
+.authCardTall::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(56, 189, 248, 0.85),
+    rgba(34, 197, 94, 0.75)
+  );
+  border: 3px solid rgba(10, 35, 44, 0.75); /* makes it look “floating” */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.authCardTall::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.08);
+}
+
+.authCardTall::-webkit-scrollbar-thumb:active {
+  filter: brightness(1.15);
+}
+
+/* Firefox */
+.authCardTall {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.85) rgba(255, 255, 255, 0.06);
+}
+/* ✅ background blur vibe (like admin login modal) */
+.authBlurBg {
+  background:
+    radial-gradient(900px 450px at 50% 0%, rgba(56, 189, 248, 0.18), transparent 60%),
+    linear-gradient(180deg, #0e3b49 0%, #071d24 100%);
+}
+
+/* ✅ center layout */
+.authRoot {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 26px 18px;
+}
+
+/* ✅ smaller / compact card */
+.authCardCompact {
+  width: min(820px, 95vw);
+  padding: 22px;
+  border-radius: 22px;
+  overflow: hidden; /* ✅ scrollbar box ke andar rahe */
+}
+
+/* ✅ scroll area inside card */
+.authCardScroll {
+  max-height: 68vh;         /* ✅ scroll threshold */
+  overflow-y: auto;         /* ✅ show when needed */
+  padding-right: 10px;      /* ✅ scrollbar space */
+}
+
+/* ✅ unique scrollbar */
+.authCardScroll::-webkit-scrollbar {
+  width: 12px;
+}
+.authCardScroll::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  margin: 12px 0;
+}
+.authCardScroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(56,189,248,0.95), rgba(34,197,94,0.75));
+  border-radius: 999px;
+  border: 3px solid rgba(0,0,0,0); /* ✅ inset look */
+  background-clip: padding-box;
+}
+.authCardScroll::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.08);
+}
+
+/* Firefox */
+.authCardScroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56,189,248,0.9) rgba(255,255,255,0.08);
+}
+
+/* ✅ msg glassy white */
+.authMsgGlassy {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+}

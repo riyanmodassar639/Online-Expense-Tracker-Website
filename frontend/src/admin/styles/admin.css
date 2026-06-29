@@ -1,0 +1,520 @@
+/* =========================
+   Admin Panel Theme
+   Same vibe as Home UI
+   ========================= */
+
+:root {
+  --bgTop: #0e3a46;
+  --bgMid: #0b2f39;
+  --bgBottom: #061b23;
+
+  --navBg: rgba(10, 35, 44, 0.92);
+  --navBorder: rgba(255, 255, 255, 0.08);
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.72);
+
+  --pillBorder: rgba(255, 255, 255, 0.12);
+
+  --blue: #2ca7ff;
+  --green: #22c55e;
+
+  --cardBg: rgba(255, 255, 255, 0.06);
+  --cardBorder: rgba(255, 255, 255, 0.10);
+}
+
+/* Full background similar to Home hero */
+.adminRoot {
+  min-height: 100vh;
+  color: var(--text);
+  background: radial-gradient(
+      1000px 520px at 50% 30%,
+      rgba(44, 167, 255, 0.18),
+      transparent 62%
+    ),
+    radial-gradient(
+      900px 520px at 60% 40%,
+      rgba(34, 197, 94, 0.12),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--bgTop) 0%, var(--bgMid) 55%, var(--bgBottom) 100%);
+}
+
+/* Navbar same layout like Home: brand left, links center, buttons right */
+.adminNavbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  height: 84px;
+  display: grid;
+  grid-template-columns: 260px 1fr 320px;
+  align-items: center;
+
+  padding: 0 30px;
+
+  background: var(--navBg);
+  border-bottom: 1px solid var(--navBorder);
+  backdrop-filter: blur(10px);
+}
+
+/* Brand */
+.adminBrand {
+  cursor: pointer;
+  user-select: none;
+}
+
+.adminBrandText {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--blue);
+}
+
+/* Center links */
+.adminNavLinks {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+}
+
+.adminNavLink {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 600;
+  font-size: 18px;
+  transition: 0.2s ease;
+}
+
+.adminNavLink:hover {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.adminNavLink.active {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Right side buttons like Home (Login/Register pills) */
+.adminNavActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.adminBtn {
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logout = blue pill (like Login) */
+.adminBtnLogin {
+  background: rgba(44, 167, 255, 0.95);
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(44, 167, 255, 0.18);
+}
+
+.adminBtnLogin:hover {
+  filter: brightness(1.03);
+}
+
+/* Admin Panel badge = green pill (like Register) */
+.adminBtnRegister {
+  background: rgba(34, 197, 94, 0.95);
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.16);
+}
+
+.adminPanelBadge {
+  cursor: default;
+}
+
+/* Main content spacing similar to Home sections */
+.adminMain {
+  padding: 28px 0 60px;
+}
+
+.adminContainer {
+  width: min(1200px, calc(100% - 60px));
+  margin: 0 auto;
+}
+
+/* Card style (glass like home overlays) */
+.adminCard {
+  border-radius: 20px;
+  padding: 22px;
+
+  background: var(--cardBg);
+  border: 1px solid var(--cardBorder);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.30);
+}
+
+/* Table */
+..adminTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 780px; /* ✅ smaller */
+}
+
+.adminTable th,
+.adminTable td {
+  padding: 10px 10px; /* ✅ smaller */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  font-size: 13px; /* ✅ smaller */
+}
+
+.adminTable th {
+  font-size: 12px; /* ✅ smaller */
+  opacity: 0.85;
+  letter-spacing: 0.3px;
+}
+
+
+.badge {
+  display: inline-flex;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.badgeActive {
+  background: rgba(34, 197, 94, 0.16);
+}
+
+.badgeInactive {
+  background: rgba(255, 200, 0, 0.14);
+}
+
+.rowActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.smallBtn {
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--pillBorder);
+  cursor: pointer;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.smallBtnApprove {
+  background: rgba(34, 197, 94, 0.16);
+  border-color: rgba(34, 197, 94, 0.22);
+}
+
+.smallBtnBlock {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.smallBtnDelete {
+  background: rgba(255, 80, 80, 0.16);
+  border-color: rgba(255, 80, 80, 0.22);
+}
+
+.smallBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* ===== Users Dropdown ===== */
+.adminDropdown {
+  position: relative;
+}
+
+.adminDropdownBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.adminArrow {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.18s ease;
+  opacity: 0.85;
+}
+
+.adminArrow.open {
+  transform: rotate(180deg);
+}
+
+.adminDropdownMenu {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  min-width: 190px;
+  padding: 10px;
+  border-radius: 16px;
+
+  background: rgba(10, 35, 44, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+
+  z-index: 100;
+}
+
+.adminDropdownItem {
+  display: block;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 700;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.adminDropdownItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+/* =========================
+   Admin: compact table
+========================= */
+.adminTable {
+  min-width: 760px; /* was 900 */
+}
+
+.adminTable th,
+.adminTable td {
+  padding: 12px 10px; /* was 14px 12px */
+  font-size: 14px;
+}
+
+/* =========================
+   Admin Login Modal (same size like client login)
+========================= */
+.adminModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+.adminModalCard {
+  width: min(620px, 92vw);
+  border-radius: 22px;
+  padding: 26px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+
+  color: rgba(255, 255, 255, 0.92);
+  position: relative;
+}
+
+.adminModalClose {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.adminModalTitle {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.adminModalSub {
+  margin: 10px 0 16px;
+  opacity: 0.82;
+  font-weight: 700;
+}
+
+.adminModalMsg {
+  margin: 10px 0 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+
+  /* white glassy msg */
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 800;
+}
+
+.adminModalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.adminModalLabel {
+  font-weight: 800;
+  opacity: 0.92;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.adminModalInput {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.adminModalBtn {
+  margin-top: 8px;
+  padding: 16px 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  background: #22c55e;
+  color: #06202a;
+  transition: 0.2s ease;
+}
+
+.adminModalBtn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.adminModalBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+/* ✅ Landing main (no navbar page) */
+.adminPublicMain{
+  padding: 90px 0 60px;
+}
+
+/* ✅ Admin modal (same size feel like client auth) */
+.adminModalOverlay{
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.adminModalCard{
+  width: min(680px, 100%);
+  border-radius: 22px;
+  padding: 26px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+  position: relative;
+}
+
+.adminModalClose{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.adminModalTitle{
+  margin: 0;
+  font-size: 44px;
+  font-weight: 900;
+}
+
+.adminModalSub{
+  margin-top: 8px;
+  opacity: 0.8;
+  font-weight: 700;
+}
+
+.adminModalMsg{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(12px);
+  color: rgba(255,255,255,0.95);
+  font-weight: 800;
+}
+
+.adminModalForm{
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.adminModalLabel{
+  font-weight: 800;
+  opacity: 0.9;
+  margin-top: 8px;
+}
+
+.adminModalInput{
+  height: 46px;
+  border-radius: 16px;
+  padding: 0 16px;
+  outline: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+}
+
+.adminModalBtn{
+  margin-top: 16px;
+  height: 54px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  background: rgba(34,197,94,0.95);
+  color: #06202a;
+}
+
+.adminModalBtn:disabled{
+  opacity: 0.7;
+  cursor: not-allowed;
+}

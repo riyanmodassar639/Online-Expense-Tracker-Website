@@ -1,0 +1,233 @@
+.authOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.authModal {
+  width: 100%;
+  max-width: 620px;
+  border-radius: 22px;
+  padding: 22px 22px 16px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.92);
+  position: relative;
+}
+
+/* ✅ REGISTER: scroll disabled + compact */
+.authModal--register {
+  max-height: 86vh;
+  overflow: hidden; /* no scroll */
+  padding: 18px 20px 14px;
+}
+
+.authClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 26px;
+  line-height: 0;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.authClose:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.authHeader {
+  padding-right: 60px;
+}
+
+.authBrand {
+  font-weight: 950;
+  letter-spacing: 0.3px;
+  color: #38bdf8;
+  font-size: 17px;
+}
+
+.authTitle {
+  margin-top: 6px;
+  font-size: 34px;
+  font-weight: 950;
+}
+
+.authSub {
+  margin-top: 6px;
+  opacity: 0.85;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.authMsg {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 750;
+}
+
+.authForm {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.authForm--register {
+  gap: 8px; /* tighter */
+}
+
+.authLabel {
+  font-weight: 850;
+  opacity: 0.92;
+  margin-top: 2px;
+}
+
+.authInput {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  outline: none;
+}
+
+.authInput::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.authGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.authBtn {
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #22c55e;
+  color: #06202a;
+  font-weight: 950;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.authBtn:hover {
+  transform: translateY(-2px);
+}
+.authBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.authSwitch {
+  margin-top: 8px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.authSwitch a {
+  color: #38bdf8;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.authDividerLine {
+  margin-top: 10px;
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.authSocialRow {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.authSocialBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #38bdf8;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.30);
+  transition: 0.2s ease;
+}
+.authSocialBtn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(56, 189, 248, 0.30);
+}
+
+/* blur background wrapper */
+.appRoot {
+  position: relative;
+  min-height: 100vh;
+}
+.appBackdrop.isBlurred {
+  filter: blur(7px);
+  transform: scale(1.02);
+  transition: 0.2s ease;
+}
+
+/* phone row */
+.phoneRow {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.phoneCode {
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 850;
+  padding: 0 10px;
+  outline: none;
+}
+
+.phoneNumber {
+  height: 44px;
+}
+
+@media (max-width: 560px) {
+  .authGrid {
+    grid-template-columns: 1fr;
+  }
+  .authTitle {
+    font-size: 28px;
+  }
+  /* mobile pe scroll allow karna zaroori hota hai */
+  .authModal--register {
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+  }
+}
